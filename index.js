@@ -46,3 +46,17 @@ const questions = [
 // Intern - school, getSchool(), and getRole() displays 'Intern'
 
 // An additional setting - validation for the user to confirm if everything is correct or needs to be re-submitted
+
+function init() {
+
+    inquirer.prompt(questions)
+    
+    .then((responses) => {
+
+        const employeeInfo = generateMarkdown(responses);
+    
+    fs.writeFile('index.html', employeeInfo, (err) => err ? console.log(err) : console.log('The README.md has been successfullygenerated.'))
+        })
+}
+
+init();
