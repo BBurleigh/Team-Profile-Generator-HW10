@@ -100,13 +100,20 @@ function init() {
 
         let teamFormation = [];
 
-        if(answers.addMember === 'continue') {
-           teamFormation.push(answers);
-           console.log(teamFormation);
-           init();
-        }
+        for(var i = 0; i < 6; i++) {
 
-        const employeeInfo = generateHTML(answers);
+          if(answers.addMember === 'continue') {
+            teamFormation.push(answers);
+            console.log(teamFormation);
+            init();
+
+            } else {
+
+            generateHTML(answers);  
+
+             }
+
+        }
     
     fs.writeFile('index.html', employeeInfo, (err) => err ? console.log(err) : console.log('The README.md has been successfullygenerated.'))
         })
