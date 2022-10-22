@@ -1,0 +1,26 @@
+{
+  "name": "team-profile-generator-hw10",
+  "version": "1.0.0",
+  "description": "An app that allows the user to create an HTML document based on input employee data as well as test the code to determine if it functions properly or not",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BBurleigh/Team-Profile-Generator-HW10.git"
+  },
+  "author": "BBurleigh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BBurleigh/Team-Profile-Generator-HW10/issues"
+  },
+  "homepage": "https://github.com/BBurleigh/Team-Profile-Generator-HW10#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
