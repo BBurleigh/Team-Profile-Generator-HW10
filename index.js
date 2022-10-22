@@ -76,7 +76,7 @@ const questions = [
             }
         },
         type: 'input',
-         message: 'As the manager of this time, we appreciate you taking the time to complete this information on the behalf of your team. ',
+         message: 'As the manager of this time, we appreciate you taking the time to complete this information on the behalf of your team. What is your office number in the NYC sector of Francesca Enterprises?',
          name: 'officeNumber'
     },
     {
@@ -97,6 +97,14 @@ function init() {
     inquirer.prompt(questions)
     
     .then((answers) => {
+
+        let teamFormation = [];
+
+        if(answers.addMember === 'continue') {
+           teamFormation.push(answers);
+           console.log(teamFormation);
+           init();
+        }
 
         const employeeInfo = generateHTML(answers);
     
