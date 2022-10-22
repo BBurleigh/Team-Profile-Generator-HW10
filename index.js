@@ -36,6 +36,26 @@ const questions = [
          message: 'As an enginner of our company, please provide your GitHub username.',
          name: 'github'
         
+    },
+    {
+        when: (answers) => {
+            if (answers.role === 'Intern') {
+                return true;
+            }
+        },
+        type: 'input',
+         message: 'As an intern, we value the new experiences and perspective that you bring to our company. From what university are you receiving your education (or have graduated from)?',
+         name: 'school'
+    },
+    {
+        when: (answers) => {
+            if (answers.role === 'Manager') {
+                return true;
+            }
+        },
+        type: 'input',
+         message: 'As a manager within our company, please provide your office room number.',
+         name: 'officeNumber'
     }
 ]
 
