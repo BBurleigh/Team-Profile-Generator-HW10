@@ -2,7 +2,29 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 
-// Employee - name, id, email
+const generateHTML = ({ name, location, github, linkedin }) =>
+  `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Hi! My name is ${name}</h1>
+    <p class="lead">I am from ${location}.</p>
+    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
+    <ul class="list-group">
+      <li class="list-group-item">My GitHub username is ${github}</li>
+      <li class="list-group-item">LinkedIn: ${linkedin}</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>`;
 
 const questions = [
     {
@@ -59,16 +81,6 @@ const questions = [
     }
 ]
 
-// methods - getName(), getId(), getEmail(), and getRole() - returns 'Employee' or another role
-
-// three classes extend from employee and include additional questions
-
-// Manager - officeNumber and getRole() displays 'Manager'
-
-// Engineer - github (GitHub username), getGithub(), and getRole() displays 'Engineer'
-
-// Intern - school, getSchool(), and getRole() displays 'Intern'
-
 // An additional setting - validation for the user to confirm if everything is correct or needs to be re-submitted
 
 function init() {
@@ -77,7 +89,7 @@ function init() {
     
     .then((answers) => {
 
-        const employeeInfo = generateMarkdown(answers);
+        const employeeInfo = generateHTML(answers);
     
     fs.writeFile('index.html', employeeInfo, (err) => err ? console.log(err) : console.log('The README.md has been successfullygenerated.'))
         })
