@@ -34,17 +34,17 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'We are excited to have you. What is your employee ID number?',
+        message: 'We are excited to have you. What is your employee ID number? If you are completing this for a team member, what is their ID?',
         name: 'id'
     },
     {
         type: 'input',
-        message: 'Excellent. Please provide your preferred or most-used email.',
+        message: 'Excellent. Please provide your preferred or most-used email. If you are filling this out for a team member, provide their preferred email.',
         name: 'email'
     },
     {
         type: 'list',
-        message: 'We appreciate you providing us with this information. Next, select which role you have within Francesca Enterprises.',
+        message: 'We appreciate you providing us with this information. Next, select which role you or one of your team members has within Francesca Enterprises.',
         name: 'role',
         choices: ['Manager', 'Engineer', 'Intern']
     },
@@ -54,8 +54,8 @@ const questions = [
                 return true;
             }
         },
-        type: 'input',
-         message: 'As an enginner of our company, please provide your GitHub username.',
+         type: 'input',
+         message: 'Since one of your team members is an engineer, please provide their GitHub username. We enjoy featuring both the company and personal projects of our engineers.',
          name: 'github'
         
     },
@@ -65,8 +65,8 @@ const questions = [
                 return true;
             }
         },
-        type: 'input',
-         message: 'As an intern, we value the new experiences and perspective that you bring to our company. From what university are you receiving your education (or have graduated from)?',
+         type: 'input',
+         message: 'Since one of your team members is an intern, please provide the university from where they graduated or are currently studying.',
          name: 'school'
     },
     {
@@ -76,8 +76,17 @@ const questions = [
             }
         },
         type: 'input',
-         message: 'As a manager within our company, please provide your office room number.',
+         message: 'As the manager of this time, we appreciate you taking the time to complete this information on the behalf of your team. ',
          name: 'officeNumber'
+    },
+    {
+        type: 'list',
+        message: 'Good job! You have updated either your information or one of your team members. Do you wish to add another team member?',
+        name: 'addMember',
+        choices: [
+            {key: 'Yes, add a new member', value: 'continue'},
+            {key: 'No, my team is complete', value: 'stop'}
+        ]
     }
 ]
 
