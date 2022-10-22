@@ -27,10 +27,14 @@ const questions = [
         choices: ['Manager', 'Engineer', 'Intern']
     },
     {
-        when: (role === 'Engineer'),
-            type: 'input',
-            message: 'As an enginner of our company, please provide your GitHub username.',
-            name: 'github'
+        when: (answers) => {
+            if (answers.role === 'Engineer') {
+                return true;
+            }
+        },
+        type: 'input',
+         message: 'As an enginner of our company, please provide your GitHub username.',
+         name: 'github'
         
     }
 ]
@@ -51,9 +55,9 @@ function init() {
 
     inquirer.prompt(questions)
     
-    .then((responses) => {
+    .then((answers) => {
 
-        const employeeInfo = generateMarkdown(responses);
+        const employeeInfo = generateMarkdown(answers);
     
     fs.writeFile('index.html', employeeInfo, (err) => err ? console.log(err) : console.log('The README.md has been successfullygenerated.'))
         })
