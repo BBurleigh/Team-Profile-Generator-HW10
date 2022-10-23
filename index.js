@@ -10,7 +10,7 @@ const Engineer = require("./lib/Engineer");
 
 const Intern = require("./lib/Intern");
 
-const generateHTML = () =>
+const generateHTML = (teamFormation) => {
   `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,6 +88,7 @@ const generateHTML = () =>
 
         }
     }       
+}
 
 const questions = [
     {
@@ -175,7 +176,7 @@ function init() {
 
 // may look at creating a switch case within the if statement for when each member's role is a a specific role to call on constructor and push info into array
     
-    fs.writeFile('index.html', teamFormation, (err) => err ? console.log(err) : console.log('Well done! You have created basic profiles for yourself and your team.'))
+    fs.writeFile('index.html', generateHTML(teamFormation), (err) => err ? console.log(err) : console.log('Well done! You have created basic profiles for yourself and your team.'))
         })
 }
 
