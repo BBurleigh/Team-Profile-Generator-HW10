@@ -106,8 +106,6 @@ function init() {
     
     .then((answers) => {
 
-        
-
           if(answers.addMember === 'continue') {
             teamFormation.push(answers);
             console.log(teamFormation);
@@ -120,9 +118,9 @@ function init() {
 
              }
 
-        
+// may look at creating a switch case within the if statement for when 
     
-    fs.writeFile('index.html', employeeInfo, (err) => err ? console.log(err) : console.log('The README.md has been successfullygenerated.'))
+    fs.writeFile('index.html', employeeInfo, (err) => err ? console.log(err) : console.log('Well done! You have created basic profiles for yourself and your team.'))
         })
 }
 
