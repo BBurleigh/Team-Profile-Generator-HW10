@@ -1,6 +1,6 @@
 const Engineer = require('../lib/Engineer');
 
-describe("Employee", () => {
+describe("Engineer", () => {
     
     it("The name of the engineer should be returned", () => {
         const name = "Michelle";
@@ -20,13 +20,13 @@ describe("Employee", () => {
         expect(result).toEqual(emailAddress);
     })
 
-    it("The role/position of the manager should be returned", () => {
+    it("The role/position of the engineer should be returned", () => {
         const position = "Engineer";
         const result = new Engineer("test", 1, "test", "Engineer").role;
         expect(result).toEqual(position);
     })
 
-    it("The office number of the manager should be returned", () => {
+    it("The office number of the engineer should be returned", () => {
         const githubName = "michelleTheCoder";
         const result = new Engineer("test", 1, "test", "test", "michelleTheCoder").github;
         expect(result).toEqual(githubName);

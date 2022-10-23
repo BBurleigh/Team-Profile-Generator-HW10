@@ -1,6 +1,6 @@
 const Manager = require("../lib/Manager");
 
-describe("Employee", () => {
+describe("Manager", () => {
     
     it("The name of the manager should be returned", () => {
         const name = "Michelle";
