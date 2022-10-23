@@ -10,29 +10,84 @@ const Engineer = require("./lib/Engineer");
 
 const Intern = require("./lib/Intern");
 
-const generateHTML = ({ name, location, github, linkedin }) =>
+const generateHTML = (teamFormation) =>
   `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <title>Your Francesca Programming Team</title>
 </head>
 <body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${name}</h1>
-    <p class="lead">I am from ${location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${github}</li>
-      <li class="list-group-item">LinkedIn: ${linkedin}</li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>`;
+        <div class="jumbotron font-weight-bold text-center">
+            <h1>Your Francesca Programming Team</h1>
+        </div>
+    
+        <div class="container justify-content-center">
+    
+            <div class="d-flex flex-wrap justify-content-center">`
+
+    for (let i = 0; i < teamFormation.length; i++) {
+
+        if (teamFormation[i].role === "Manager") {
+
+            teamFormation.innerHTML =
+
+            `<div class="card text-center ml-4 mr-4 mb-5 border-dark">
+            <div class="card-body bg-danger text-light">
+            <h4 class="card-header">Name:${teamFormation[i].name}</h4>
+            <h4 class="card-title">${teamFormation[i].role}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID:${teamFormation[i].id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}"> ${teamFormation[i].email}</a></li>
+            <li class="list-group-item">Office Number: ${teamFormation[i].officeNumber}</li>
+            </ul>
+            </div>`
+
+        } else if (teamFormation[i].role === "Engineer") {
+
+            teamFormation.innerHTML +=
+
+            `<div class="card text-center ml-4 mr-4 mb-5 border-dark"></div>
+            <div class="card-body bg-info text-light">
+            <h4 class="card-header">${teamFormation[i].name}</h4>
+            <h4 class="card-title">${teamFormation[i].role}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${teamFormation[i].id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}">${teamFormation[i].email}</a></li>
+            <li class="list-group-item"><a href="${teamFormation[i].github}" target= "_blank">GitHub</a></li>
+            </ul>
+            </div>`
+    
+        } else if (teamFormation[i].role === "Intern") {
+
+            teamFormation.innerHTML +=
+                
+            `<div class="card text-center ml-4 mr-4 mb-5 border-dark">
+            <div class="card-body bg-warning text-light">
+            <h4 class="card-header">${teamFormation[i].name}</h4>
+            <h4 class="card-title">${teamFormation[i].role}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${teamFormation[i].id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}">${teamFormation[i].email}</a></li>
+            <li class="list-group-item">School: ${teamFormation[i].school}</li>
+            </ul>
+            </div>`
+        
+        } else {
+          
+        `</div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        </body>
+        </html>`  
+        
+        }
+    }       
 
 const questions = [
     {
@@ -120,7 +175,7 @@ function init() {
 
 // may look at creating a switch case within the if statement for when each member's role is a a specific role to call on constructor and push info into array
     
-    fs.writeFile('index.html', employeeInfo, (err) => err ? console.log(err) : console.log('Well done! You have created basic profiles for yourself and your team.'))
+    fs.writeFile('index.html', teamFormation, (err) => err ? console.log(err) : console.log('Well done! You have created basic profiles for yourself and your team.'))
         })
 }
 
