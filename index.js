@@ -90,7 +90,7 @@ const questions = [
     }
 ]
 
-// An additional setting - validation for the user to confirm if everything is correct or needs to be re-submitted
+var teamFormation = [];
 
 function init() {
 
@@ -98,22 +98,21 @@ function init() {
     
     .then((answers) => {
 
-        let teamFormation = [];
-
-        for(var i = 0; i < 6; i++) {
+        
 
           if(answers.addMember === 'continue') {
             teamFormation.push(answers);
             console.log(teamFormation);
             init();
-
+            return;
             } else {
 
+            teamFormation.push(answers);
             generateHTML(answers);  
 
              }
 
-        }
+        
     
     fs.writeFile('index.html', employeeInfo, (err) => err ? console.log(err) : console.log('The README.md has been successfullygenerated.'))
         })
