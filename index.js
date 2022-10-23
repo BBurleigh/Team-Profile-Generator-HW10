@@ -10,7 +10,7 @@ const Engineer = require("./lib/Engineer");
 
 const Intern = require("./lib/Intern");
 
-const generateHTML = (teamFormation) =>
+const generateHTML = () =>
   `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +85,7 @@ const generateHTML = (teamFormation) =>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
         </body>
         </html>`  
-        
+
         }
     }       
 
