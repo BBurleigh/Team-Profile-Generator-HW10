@@ -10,19 +10,19 @@ describe("Employee", () => {
 
     it("The ID number of the employee should be returned", () => {
         const identification = 105;
-        const result = new Employee(105).id;
+        const result = new Employee("test", 105).id;
         expect(result).toEqual(identification);
     })
 
     it("The email address of the employee should be returned", () => {
         const emailAddress = "mich8poppy@gmail.com";
-        const result = new Employee("mich8poppy@gmail.com").email;
+        const result = new Employee("test", 1, "mich8poppy@gmail.com").email;
         expect(result).toEqual(emailAddress);
     })
 
     it("The role/position of the employee should be returned", () => {
         const position = "Manager";
-        const result = new Employee("Manager").role;
+        const result = new Employee("test", 1, "test", "Manager").role;
         expect(result).toEqual(position);
     })
 
