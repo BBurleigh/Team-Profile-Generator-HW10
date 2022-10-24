@@ -24,73 +24,15 @@ const generateHTML = (teamFormation) => {
             <h1>Your Francesca Programming Team</h1>
         </div>
     
-        <div class="container d-flex flex-wrap justify-content-center">`
+        <div class="container d-flex flex-wrap justify-content-center">
 
-    for (let i = 0; i < teamFormation.length; i++) {
-
-        if (teamFormation[i].role === "Manager") {
-
-            teamFormation.innerHTML =
-
-            `<div class="card text-center ml-4 mr-4 mb-5 border-dark">
-            <div class="card-body bg-danger text-light">
-            <h4 class="card-header">Name:${teamFormation[i].name}</h4>
-            <h4 class="card-title">${teamFormation[i].role}</h4>
-            </div>
-            <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID:${teamFormation[i].id}</li>
-            <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}"> ${teamFormation[i].email}</a></li>
-            <li class="list-group-item">Office Number: ${teamFormation[i].officeNumber}</li>
-            </ul>
-            </div>`
-
-            return teamFormation.innerHTML;
-
-        } else if (teamFormation[i].role === "Engineer") {
-
-            teamFormation.innerHTML +=
-
-            `<div class="card text-center ml-4 mr-4 mb-5 border-dark"></div>
-            <div class="card-body bg-info text-light">
-            <h4 class="card-header">${teamFormation[i].name}</h4>
-            <h4 class="card-title">${teamFormation[i].role}</h4>
-            </div>
-            <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${teamFormation[i].id}</li>
-            <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}">${teamFormation[i].email}</a></li>
-            <li class="list-group-item">Github: <a href="${teamFormation[i].github}" target= "_blank">${teamFormation[i].github}</a></li>
-            </ul>
-            </div>`
-
-            return teamFormation.innerHTML;
-    
-        } else if (teamFormation[i].role === "Intern") {
-
-            teamFormation.innerHTML +=
-                
-            `<div class="card text-center ml-4 mr-4 mb-5 border-dark">
-            <div class="card-body bg-warning text-light">
-            <h4 class="card-header">${teamFormation[i].name}</h4>
-            <h4 class="card-title">${teamFormation[i].role}</h4>
-            </div>
-            <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${teamFormation[i].id}</li>
-            <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}">${teamFormation[i].email}</a></li>
-            <li class="list-group-item">School: ${teamFormation[i].school}</li>
-            </ul>
-            </div>`
-
-            return teamFormation.innerHTML;
-        
-        } else {
+    ${profileCards(teamFormation)}
           
-        `</div>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
         </body>
         </html>`  
-
-        }
-    }       
+          
 }
 
 const questions = [
@@ -184,3 +126,73 @@ function init() {
 }
 
 init();
+
+function profileCards(teamFormation) => {
+
+let htmlArray = [];
+
+for (let i = 0; i < teamFormation.length; i++) {
+
+        if (teamFormation[i].role === "Manager") {
+
+            teamFormation.innerHTML =
+
+            `<div class="card text-center ml-4 mr-4 mb-5 border-dark">
+            <div class="card-body bg-danger text-light">
+            <h4 class="card-header">Name:${teamFormation[i].name}</h4>
+            <h4 class="card-title">${teamFormation[i].role}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID:${teamFormation[i].id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}"> ${teamFormation[i].email}</a></li>
+            <li class="list-group-item">Office Number: ${teamFormation[i].officeNumber}</li>
+            </ul>
+            </div>`
+
+            htmlArray.push(teamFormation);
+
+            // return teamFormation.innerHTML;
+
+        } else if (teamFormation[i].role === "Engineer") {
+
+            teamFormation.innerHTML +=
+
+            `<div class="card text-center ml-4 mr-4 mb-5 border-dark"></div>
+            <div class="card-body bg-info text-light">
+            <h4 class="card-header">${teamFormation[i].name}</h4>
+            <h4 class="card-title">${teamFormation[i].role}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${teamFormation[i].id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}">${teamFormation[i].email}</a></li>
+            <li class="list-group-item">Github: <a href="${teamFormation[i].github}" target= "_blank">${teamFormation[i].github}</a></li>
+            </ul>
+            </div>`
+
+            htmlArray.push(teamFormation);
+
+            // return teamFormation.innerHTML;
+    
+        } else if (teamFormation[i].role === "Intern") {
+
+            teamFormation.innerHTML +=
+                
+            `<div class="card text-center ml-4 mr-4 mb-5 border-dark">
+            <div class="card-body bg-warning text-light">
+            <h4 class="card-header">${teamFormation[i].name}</h4>
+            <h4 class="card-title">${teamFormation[i].role}</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${teamFormation[i].id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}">${teamFormation[i].email}</a></li>
+            <li class="list-group-item">School: ${teamFormation[i].school}</li>
+            </ul>
+            </div>`
+
+            htmlArray.push(teamFormation);
+
+            // return teamFormation.innerHTML;
+        
+        }
+    }
+}
