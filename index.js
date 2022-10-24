@@ -127,7 +127,7 @@ function init() {
 
 init();
 
-function profileCards(teamFormation) => {
+function profileCards(teamFormation) {
 
 let htmlArray = [];
 
