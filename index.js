@@ -44,6 +44,8 @@ const generateHTML = (teamFormation) => {
             </ul>
             </div>`
 
+            return teamFormation.innerHTML;
+
         } else if (teamFormation[i].role === "Engineer") {
 
             teamFormation.innerHTML +=
@@ -59,6 +61,8 @@ const generateHTML = (teamFormation) => {
             <li class="list-group-item">Github: <a href="${teamFormation[i].github}" target= "_blank">${teamFormation[i].github}</a></li>
             </ul>
             </div>`
+
+            return teamFormation.innerHTML;
     
         } else if (teamFormation[i].role === "Intern") {
 
@@ -75,6 +79,8 @@ const generateHTML = (teamFormation) => {
             <li class="list-group-item">School: ${teamFormation[i].school}</li>
             </ul>
             </div>`
+
+            return teamFormation.innerHTML;
         
         } else {
           
@@ -172,7 +178,7 @@ function init() {
              }
 
 // may look at creating a switch case within the if statement for when each member's role is a a specific role to call on constructor and push info into array
-    
+
     fs.writeFile('index.html', generateHTML(teamFormation), (err) => err ? console.log(err) : console.log('Well done! You have created basic profiles for yourself and your team.'))
         })
 }
