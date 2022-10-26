@@ -10,7 +10,10 @@ const Engineer = require("./lib/Engineer");
 
 const Intern = require("./lib/Intern");
 
-const generateHTML = (teamFormation) => {
+
+
+
+function generateHTML (teamFormation){
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,19 +112,17 @@ function init() {
 
           if(answers.addMember === 'continue') {
             teamFormation.push(answers);
-            console.log(teamFormation);
+            //console.log(teamFormation);
             init();
             return;
             } else {
 
-            teamFormation.push(answers);
-            generateHTML(answers);  
+            teamFormation.push(answers); 
 
              }
 
-// may look at creating a switch case within the if statement for when each member's role is a a specific role to call on constructor and push info into array
-
-    fs.writeFileSync('index.html', generateHTML(teamFormation), (err) => err ? console.log(err) : console.log('Well done! You have created basic profiles for yourself and your team.'))
+//console.log(generateHTML(teamFormation));
+    fs.writeFile('index.html', generateHTML(teamFormation), (err) => err ? console.log(err) : console.log('Well done! You have created basic profiles for yourself and your team.'))
         })
 }
 
@@ -135,31 +136,29 @@ for (let i = 0; i < teamFormation.length; i++) {
 
         if (teamFormation[i].role === "Manager") {
 
-            teamFormation.innerHTML =
+            const card =
 
             `<div class="card text-center ml-4 mr-4 mb-5 border-dark">
             <div class="card-body bg-danger text-light">
-            <h4 class="card-header">Name:${teamFormation[i].name}</h4>
+            <h4 class="card-header">Name: ${teamFormation[i].name}</h4>
             <h4 class="card-title">${teamFormation[i].role}</h4>
             </div>
             <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID:${teamFormation[i].id}</li>
+            <li class="list-group-item">ID: ${teamFormation[i].id}</li>
             <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}"> ${teamFormation[i].email}</a></li>
             <li class="list-group-item">Office Number: ${teamFormation[i].officeNumber}</li>
             </ul>
             </div>`
 
-            htmlArray.push(teamFormation);
-
-            // return teamFormation.innerHTML;
+            htmlArray.push(card);
 
         } else if (teamFormation[i].role === "Engineer") {
 
-            teamFormation.innerHTML +=
+            const card =
 
             `<div class="card text-center ml-4 mr-4 mb-5 border-dark"></div>
             <div class="card-body bg-info text-light">
-            <h4 class="card-header">${teamFormation[i].name}</h4>
+            <h4 class="card-header">Name: ${teamFormation[i].name}</h4>
             <h4 class="card-title">${teamFormation[i].role}</h4>
             </div>
             <ul class="list-group list-group-flush">
@@ -169,17 +168,15 @@ for (let i = 0; i < teamFormation.length; i++) {
             </ul>
             </div>`
 
-            htmlArray.push(teamFormation);
-
-            // return teamFormation.innerHTML;
+            htmlArray.push(card);
     
         } else if (teamFormation[i].role === "Intern") {
 
-            teamFormation.innerHTML +=
+            const card =
                 
             `<div class="card text-center ml-4 mr-4 mb-5 border-dark">
             <div class="card-body bg-warning text-light">
-            <h4 class="card-header">${teamFormation[i].name}</h4>
+            <h4 class="card-header">Name: ${teamFormation[i].name}</h4>
             <h4 class="card-title">${teamFormation[i].role}</h4>
             </div>
             <ul class="list-group list-group-flush">
@@ -189,11 +186,7 @@ for (let i = 0; i < teamFormation.length; i++) {
             </ul>
             </div>`
 
-            htmlArray.push(teamFormation);
-
-            
-
-            // return teamFormation.innerHTML;
+            htmlArray.push(card);
         
         }
 
