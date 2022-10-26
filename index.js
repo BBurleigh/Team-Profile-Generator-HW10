@@ -191,8 +191,15 @@ for (let i = 0; i < teamFormation.length; i++) {
 
             htmlArray.push(teamFormation);
 
+            
+
             // return teamFormation.innerHTML;
         
         }
+
     }
+    console.log(htmlArray);
+    
+    return htmlArray.join("");
+    
 }
