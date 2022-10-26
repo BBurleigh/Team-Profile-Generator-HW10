@@ -10,34 +10,6 @@ const Engineer = require("./lib/Engineer");
 
 const Intern = require("./lib/Intern");
 
-
-
-
-function generateHTML (teamFormation){
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-  <title>Your Francesca Programming Team</title>
-</head>
-<body>
-        <div class="jumbotron font-weight-bold text-center">
-            <h1>Your Francesca Programming Team</h1>
-        </div>
-    
-        <div class="container d-flex flex-wrap justify-content-center">
-
-    ${profileCards(teamFormation)}
-          
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        </body>
-        </html>`  
-          
-}
-
 const questions = [
     {
         type: 'input',
@@ -128,6 +100,31 @@ function init() {
 
 init();
 
+function generateHTML (teamFormation){
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <title>Your Francesca Programming Team</title>
+</head>
+<body>
+        <div class="jumbotron font-weight-bold text-center">
+            <h1>Your Francesca Programming Team</h1>
+        </div>
+    
+        <div class="container d-flex flex-wrap justify-content-center">
+
+    ${profileCards(teamFormation)}
+          
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        </body>
+        </html>`  
+          
+}
+
 function profileCards(teamFormation) {
 
 let htmlArray = [];
@@ -138,7 +135,8 @@ for (let i = 0; i < teamFormation.length; i++) {
 
             const card =
 
-            `<div class="card text-center ml-4 mr-4 mb-5 border-dark">
+            `
+            <div class="card text-center ml-4 mr-4 mb-5 border-dark">
             <div class="card-body bg-danger text-light">
             <h4 class="card-header">Name: ${teamFormation[i].name}</h4>
             <h4 class="card-title">${teamFormation[i].role}</h4>
@@ -148,7 +146,8 @@ for (let i = 0; i < teamFormation.length; i++) {
             <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}"> ${teamFormation[i].email}</a></li>
             <li class="list-group-item">Office Number: ${teamFormation[i].officeNumber}</li>
             </ul>
-            </div>`
+            </div>
+            `
 
             htmlArray.push(card);
 
@@ -156,7 +155,8 @@ for (let i = 0; i < teamFormation.length; i++) {
 
             const card =
 
-            `<div class="card text-center ml-4 mr-4 mb-5 border-dark"></div>
+            `
+            <div class="card text-center ml-4 mr-4 mb-5 border-dark">
             <div class="card-body bg-info text-light">
             <h4 class="card-header">Name: ${teamFormation[i].name}</h4>
             <h4 class="card-title">${teamFormation[i].role}</h4>
@@ -166,7 +166,8 @@ for (let i = 0; i < teamFormation.length; i++) {
             <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}">${teamFormation[i].email}</a></li>
             <li class="list-group-item">Github: <a href="${teamFormation[i].github}" target= "_blank">${teamFormation[i].github}</a></li>
             </ul>
-            </div>`
+            </div>
+            `
 
             htmlArray.push(card);
     
@@ -174,7 +175,8 @@ for (let i = 0; i < teamFormation.length; i++) {
 
             const card =
                 
-            `<div class="card text-center ml-4 mr-4 mb-5 border-dark">
+            `
+            <div class="card text-center ml-4 mr-4 mb-5 border-dark">
             <div class="card-body bg-warning text-light">
             <h4 class="card-header">Name: ${teamFormation[i].name}</h4>
             <h4 class="card-title">${teamFormation[i].role}</h4>
@@ -184,7 +186,8 @@ for (let i = 0; i < teamFormation.length; i++) {
             <li class="list-group-item">Email: <a href="mailto:${teamFormation[i].email}">${teamFormation[i].email}</a></li>
             <li class="list-group-item">School: ${teamFormation[i].school}</li>
             </ul>
-            </div>`
+            </div>
+            `
 
             htmlArray.push(card);
         
