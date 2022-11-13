@@ -9,6 +9,8 @@ There is no installation required for this to run.
 ## Usage
 This video linked into the README.md serves as a demo for how to use the app and what is generated from it.
 https://bootcampspot.instructuremedia.com/embed/39ddb4b6-9867-4cf8-8ce6-1effc6956467
+The second video demonstrates testing each of the classes and showing that the tests passed.
+https://bootcampspot.instructuremedia.com/embed/39cdebc6-f348-41ad-9ed9-a82e832f61b4
 
 ## Contributions
 Aside from myself and research, my tutor and a number of support staff at AskBCS Learning (on Slack) immensely helped me by bouncing ideas off of each other and finding areas where the code could be fixed/tweaked/added/removed. 
